@@ -1,8 +1,9 @@
 name: Deploy GitHub Pages
 
+# Push deploys fail with HTTP 404 until a repo admin enables Pages.
+# Keep this manual so main stays green. After Settings → Pages → GitHub Actions,
+# run this workflow from the Actions tab. Branch publishing does not need it.
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 permissions:
