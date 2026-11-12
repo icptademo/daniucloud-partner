@@ -17,15 +17,22 @@ baseurl: /daniucloud-partner
 
 `baseurl` 少了或不对，样式、文章和 RSS 都会指向错误地址。不要添加 `CNAME`，除非以后改用独立域名并同时改这两项。
 
-仓库管理员需要做一次设置：
+仓库管理员需要在 **Settings → Pages** 里选一种发布方式。代理账号没有 Pages 管理权限，这一步无法代点。两种只留一种。
 
-1. 打开仓库的 **Settings → Pages**。
-2. **Build and deployment** 的 **Source** 选 **Deploy from a branch**。
-3. **Branch** 选 `main`，文件夹选 `/ (root)`，保存。
+**从分支发布（站点根目录）：**
 
-保存后等 GitHub Pages 用 Jekyll 构建。完成后访问 <https://icptademo.github.io/daniucloud-partner>。RSS 在 `/daniucloud-partner/feed.xml`，站点地图在 `/daniucloud-partner/sitemap.xml`。
+1. **Source** 选 **Deploy from a branch**。
+2. **Branch** 选 `main`，文件夹选 `/ (root)`，保存。
+3. 停用或删除 `.github/workflows/pages.yml`，避免它因为发布源不是 GitHub Actions 而失败。
 
-`.github/workflows/jekyll.yml` 只在推送到 `main` 和拉取请求上检查 `jekyll build` 能否通过，并确认生成的链接带有 `/daniucloud-partner`。它不会把站点部署出去。不要把发布来源改成 GitHub Actions，除非另外准备部署工作流。
+**用 GitHub Actions 发布：**
+
+1. **Source** 选 **GitHub Actions**。
+2. 等 `.github/workflows/pages.yml` 成功，或在 Actions 里重跑 **Deploy GitHub Pages**。这个工作流在 `main` 上用 Jekyll 构建并部署，`baseurl` 仍来自 `_config.yml`。
+
+完成后访问 <https://icptademo.github.io/daniucloud-partner>。RSS 在 `/daniucloud-partner/feed.xml`，站点地图在 `/daniucloud-partner/sitemap.xml`。
+
+`.github/workflows/jekyll.yml` 在推送到 `main` 和拉取请求上检查构建，并确认生成的链接带有 `/daniucloud-partner`。它本身不部署站点。
 
 本站只用 GitHub Pages 允许的插件：`jekyll-feed`、`jekyll-seo-tag`、`jekyll-sitemap`。
 
