@@ -1,0 +1,24 @@
+---
+layout: page
+title: 分类
+permalink: /categories/
+description: 国际云渠道笔记的分类：起步、合作模式、结算、白标与下级、合规接待。
+---
+
+{% for cat in site.data.categories %}
+  {% assign cat_posts = site.categories[cat.name] %}
+  <section class="group" id="{{ cat.slug }}">
+    <h2>{{ cat.name }}</h2>
+    <p>{{ cat.summary }}</p>
+    {% if cat_posts %}
+      <ul>
+        {% for post in cat_posts %}
+          <li>
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            <span class="meta">{{ post.date | date: "%Y年%-m月%-d日" }}</span>
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </section>
+{% endfor %}

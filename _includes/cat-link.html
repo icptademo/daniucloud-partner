@@ -1,0 +1,7 @@
+{% assign cat_slug = include.name %}
+{% for item in site.data.categories %}
+  {% if item.name == include.name %}
+    {% assign cat_slug = item.slug %}
+  {% endif %}
+{% endfor %}
+<a class="cat" href="{{ '/categories/' | relative_url }}#{{ cat_slug }}">{{ include.name }}</a>

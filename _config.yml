@@ -1,0 +1,54 @@
+title: 国际云渠道笔记
+tagline: 代理、渠道分销、白标、下级代理与返佣结算
+description: >-
+  写给准备做国际云开户与充值分销的人。记录代理合作、渠道分销、技术联运、
+  方案共建，以及返佣对账、白标和下级代理在签约前要写清的事项。
+url: https://icptademo.github.io
+baseurl: /daniucloud-partner
+lang: zh_CN
+timezone: Asia/Shanghai
+author: 国际云渠道笔记
+
+permalink: /:year/:month/:title/
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
+  auto_ids: true
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+feed:
+  path: feed.xml
+
+sass:
+  style: compressed
+
+future: false
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .bundle
+  - node_modules
+  - scripts
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      author: 国际云渠道笔记
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: page

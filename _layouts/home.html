@@ -1,0 +1,54 @@
+---
+layout: default
+---
+<div class="wrap home-layout">
+  <div class="home-main">
+    {{ content }}
+    <ol class="ledger">
+      {% for post in site.posts %}
+        <li>
+          <article class="ledger-item">
+            <p class="ledger-meta">
+              <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y年%-m月%-d日" }}</time>
+              {% for cat in post.categories %}
+                {% include cat-link.html name=cat %}
+              {% endfor %}
+            </p>
+            <div class="ledger-body">
+              <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+              {% if post.description %}
+                <p>{{ post.description }}</p>
+              {% endif %}
+            </div>
+          </article>
+        </li>
+      {% endfor %}
+    </ol>
+  </div>
+  <aside class="side" aria-label="签约前">
+    <section class="side-block">
+      <h2>签约前四问</h2>
+      <ol class="ask">
+        <li>客户从哪来</li>
+        <li>主推哪一家云，另外四家会不会被问到</li>
+        <li>有没有自己的站点，要不要白标或下级</li>
+        <li>计算口径、结算周期、退款扣减和对账方式</li>
+      </ol>
+    </section>
+    <section class="side-block">
+      <h2>分类</h2>
+      <ul class="side-cats">
+        {% for cat in site.data.categories %}
+          <li>
+            <a href="{{ '/categories/' | relative_url }}#{{ cat.slug }}">{{ cat.name }}</a>
+            <p>{{ cat.summary }}</p>
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
+    <section class="side-block">
+      <h2>怎么联系</h2>
+      <p>用 <a href="https://www.daniucloud.com/consult?intent=partner">申请代理表单</a> 或 Telegram <a href="https://t.me/yanhuacloud">@yanhuacloud</a>。先看 <a href="https://www.daniucloud.com/partners">招商说明</a>，再写客户从哪来、主推哪家云。</p>
+    </section>
+  </aside>
+</div>

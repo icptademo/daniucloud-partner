@@ -1,0 +1,15 @@
+- name: 起步
+  slug: start
+  summary: 谁适合做开户与充值代理，提交意向之前要准备什么。
+- name: 合作模式
+  slug: models
+  summary: 代理合作、渠道分销、技术联运、方案共建，按现有能力选。
+- name: 结算
+  slug: settlement
+  summary: 计算口径、结算周期、退款扣减和对账方式，先写成书面条件。
+- name: 白标与下级
+  slug: brand
+  summary: 品牌名称、客服入口、客户归属和分成规则怎么约定。
+- name: 合规接待
+  slug: compliance
+  summary: 真实主体、自有邮箱、地区核对、多因素认证和账号交接。
