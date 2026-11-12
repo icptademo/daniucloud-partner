@@ -1,0 +1,20 @@
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="brand" href="{{ '/' | relative_url }}">
+      <svg class="mark" viewBox="0 0 32 32" aria-hidden="true">
+        <rect width="32" height="32" rx="6" fill="currentColor"/>
+        <path d="M7 16h8M15 16c5-7 10-7 10-7M15 16c5 7 10 7 10 7" fill="none" stroke="#102033" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <span class="brand-text">
+        <span class="brand-name">国际云渠道笔记</span>
+        <span class="brand-tag">代理 · 分销 · 白标 · 结算</span>
+      </span>
+    </a>
+    <nav class="nav" aria-label="站点">
+      <a href="{{ '/' | relative_url }}"{% if page.url == '/' %} aria-current="page"{% endif %}>文章</a>
+      <a href="{{ '/categories/' | relative_url }}"{% if page.url == '/categories/' %} aria-current="page"{% endif %}>分类</a>
+      <a href="{{ '/tags/' | relative_url }}"{% if page.url == '/tags/' %} aria-current="page"{% endif %}>标签</a>
+      <a href="{{ '/about/' | relative_url }}"{% if page.url == '/about/' %} aria-current="page"{% endif %}>关于</a>
+    </nav>
+  </div>
+</header>

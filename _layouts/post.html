@@ -1,0 +1,45 @@
+---
+layout: default
+---
+<article class="sheet">
+  <header class="sheet-head">
+    <p class="ledger-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y年%-m月%-d日" }}</time>
+      {% for cat in page.categories %}
+        {% include cat-link.html name=cat %}
+      {% endfor %}
+    </p>
+    <h1>{{ page.title }}</h1>
+    {% if page.description %}
+      <p class="dek">{{ page.description }}</p>
+    {% endif %}
+    {% if page.tags %}
+      <ul class="tag-row">
+        {% for tag in page.tags %}
+          {% assign tag_slug = nil %}
+          {% for item in site.data.tag_slugs %}
+            {% if item.name == tag %}
+              {% assign tag_slug = item.slug %}
+            {% endif %}
+          {% endfor %}
+          <li><a href="{{ '/tags/' | relative_url }}#{{ tag_slug | default: forloop.index }}">{{ tag }}</a></li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </header>
+  <div class="sheet-body">
+    {{ content }}
+  </div>
+  <footer class="sheet-foot">
+    {% if page.next or page.previous %}
+      <nav class="pager" aria-label="其他文章">
+        {% if page.next %}
+          <a href="{{ page.next.url | relative_url }}"><span>较新</span>{{ page.next.title }}</a>
+        {% endif %}
+        {% if page.previous %}
+          <a href="{{ page.previous.url | relative_url }}"><span>较早</span>{{ page.previous.title }}</a>
+        {% endif %}
+      </nav>
+    {% endif %}
+  </footer>
+</article>
