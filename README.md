@@ -17,18 +17,19 @@ baseurl: /daniucloud-partner
 
 `baseurl` 少了或不对，样式、文章和 RSS 都会指向错误地址。不要添加 `CNAME`，除非以后改用独立域名并同时改这两项。
 
-仓库管理员需要在 **Settings → Pages** 里选一种发布方式。代理账号没有 Pages 管理权限，这一步无法代点。两种只留一种。
+仓库管理员需要在 **Settings → Pages** 里打开发布。代理账号没有 Pages 管理权限，这一步无法代点。在打开之前，`https://icptademo.github.io/daniucloud-partner` 会返回 404。两种只留一种。
 
-**从分支发布（站点根目录）：**
+**从分支发布（推荐，站点根目录）：**
 
-1. **Source** 选 **Deploy from a branch**。
-2. **Branch** 选 `main`，文件夹选 `/ (root)`，保存。
-3. 停用或删除 `.github/workflows/pages.yml`，避免它因为发布源不是 GitHub Actions 而失败。
+1. 打开 <https://github.com/icptademo/daniucloud-partner/settings/pages>。
+2. **Source** 选 **Deploy from a branch**。
+3. **Branch** 选 `main`，文件夹选 `/ (root)`，保存。
+4. 等 GitHub 用 Jekyll 构建。不要再把发布源改成 GitHub Actions。
 
-**用 GitHub Actions 发布：**
+**改用 GitHub Actions 时：**
 
 1. **Source** 选 **GitHub Actions**。
-2. 等 `.github/workflows/pages.yml` 成功，或在 Actions 里重跑 **Deploy GitHub Pages**。这个工作流在 `main` 上用 Jekyll 构建并部署，`baseurl` 仍来自 `_config.yml`。
+2. 在 Actions 里手动运行 **Deploy GitHub Pages**（`.github/workflows/pages.yml`）。它只在手动触发时构建并部署，避免 Pages 未开启时每次推送都失败。`baseurl` 仍来自 `_config.yml`。
 
 完成后访问 <https://icptademo.github.io/daniucloud-partner>。RSS 在 `/daniucloud-partner/feed.xml`，站点地图在 `/daniucloud-partner/sitemap.xml`。
 
