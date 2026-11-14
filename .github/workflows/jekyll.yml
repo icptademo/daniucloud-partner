@@ -32,6 +32,7 @@ jobs:
           test -f _site/2026/11/commission-reconciliation-checklist/index.html
           test -f _site/2026/11/white-label-and-sub-agents/index.html
           test -f _site/2026/11/compliant-account-opening/index.html
+          test -f _site/2026/11/top-up-arrival-check/index.html
           grep -q '/daniucloud-partner/assets/css/style.css' _site/index.html
           grep -q 'https://icptademo.github.io/daniucloud-partner/' _site/feed.xml
           grep -q 'https://icptademo.github.io/daniucloud-partner/' _site/sitemap.xml
