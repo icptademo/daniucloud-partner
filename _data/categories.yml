@@ -13,3 +13,6 @@
 - name: 合规接待
   slug: compliance
   summary: 真实主体、自有邮箱、地区核对、多因素认证和账号交接。
+- name: 充值核对
+  slug: recharge
+  summary: 付款前核对账号和主体，到账后按目标账号的资产变动验收。
